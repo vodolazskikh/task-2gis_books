@@ -1,0 +1,19 @@
+.App-item_wrapper {
+  border-bottom: 1px solid #999;
+  padding: 10px;
+}
+.App-item-row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.App-item-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+.App-item-row_tags {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+
+}

@@ -1,0 +1,10 @@
+.App-filter_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #999;
+  padding: 50px;
+}
+span {
+  padding: 5px;
+}

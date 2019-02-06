@@ -1,0 +1,18 @@
+.AppTab-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  cursor: pointer;
+}
+.AppTab-wrapper_center {
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+}
+.AppTab-Tab_noactive {
+  border-bottom: 1px solid #999;
+}
+.AppTab-Tab_active {
+  border-bottom: none;
+  font-weight: bold;
+}

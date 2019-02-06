@@ -1,0 +1,8 @@
+.Item-button_wrapper {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+}
