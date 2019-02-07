@@ -3,6 +3,7 @@ import './ItemButton.css'
 
 class ItemButton extends Component {
   changeStatus() {
+    //Смена статуса книги
     let status;
     if (this.props.selectedStatus === 'toread') {
       status = 'inprogress'

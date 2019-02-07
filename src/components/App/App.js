@@ -18,6 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     const bookLocal = JSON.parse(localStorage.getItem('booksList'));
+    //Если в LS есть книги, берем оттуда, иначе - фетчим json
     if (bookLocal) {
       this.setState({
         books: bookLocal,
@@ -33,10 +34,12 @@ class App extends Component {
   }
 
   componentDidUpdate() {
+    //Обновляем LS каждый раз, когда обновляются props/state
     localStorage.setItem('booksList', JSON.stringify(this.state.books));
   }
 
   getBooks(self) {
+    //Метод, отбирающий необходимые книги по табу и фильтрам
     let booksList = this.state.books.filter((book) => {
       return book.status === self.state.selectedStatus;
     });
@@ -55,6 +58,7 @@ class App extends Component {
   }
 
   getBooksAmount(tab) {
+    //Возвращаем количество книг на вкладке
     const booksList = this.state.books.filter((book) => {
       return book.status === tab;
     });
@@ -62,6 +66,7 @@ class App extends Component {
   }
 
   statusSelectHandler = (selectedStatus) => {
+    //Управляем caption на кнопке смены "статуса книги"
     let buttonCaption;
     if (selectedStatus === 'toread') {
       buttonCaption = 'start reading →';
@@ -85,6 +90,7 @@ class App extends Component {
   }
 
   addTag = (tag) => {
+    //Добавляем тэг в фильтр-список
     const tagArray = this.state.filterTags;
     if (tagArray.indexOf(tag) === -1) {
       tagArray.push(tag);
@@ -95,6 +101,7 @@ class App extends Component {
   }
 
   removeTag = (tag) => {
+    //Удаляем тэг из фильтр-списока
     const tagArray = this.state.filterTags;
     if (tagArray.indexOf(tag) !== -1) {
       tagArray.splice(tagArray.indexOf(tag), 1);
@@ -105,6 +112,7 @@ class App extends Component {
   }
 
   isListEmpty() {
+    //Если книг в табе нет
     if (this.getBooks(this).length > 0) {
       return this.getBooks(this).map((item, index) =>
         <AppItem   bookItem={item}
@@ -121,6 +129,7 @@ class App extends Component {
   }
 
   listFormatter(books) {
+    //При инициализации - добавляем в каждый элемент поле статус
     let tempBooks = books;
     for (let book in tempBooks) {
       tempBooks[book].status = 'toread';
@@ -129,6 +138,7 @@ class App extends Component {
   }
 
   selectTabClass(selector) {
+    //Динамический класс для таба
     let status = 'noactive';
     if (this.state.selectedStatus === selector) {
       status = 'active';

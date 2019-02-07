@@ -3,6 +3,7 @@ import './AppTab.css';
 
 class AppTab extends Component {
   getTabSideClass() {
+    //Динамический класс для таба
     let tabClass = '';
     if (this.props.tabPosition === 'center') {
       tabClass = 'AppTab-wrapper AppTab-wrapper_center AppTab-Tab_'+this.props.tabClass;

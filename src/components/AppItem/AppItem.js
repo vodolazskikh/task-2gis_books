@@ -16,6 +16,7 @@ class AppItem extends Component {
   }
 
   changeStatus = (value) => {
+    //Смена статуса книги
     const book = this.props.bookItem;
     this.props.listFilter(book, value);
   }
